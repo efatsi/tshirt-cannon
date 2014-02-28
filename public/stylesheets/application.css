@@ -1,0 +1,17 @@
+h1 {
+  text-align: center;
+}
+
+.button {
+  height: 100%;
+  float: left;
+  width: 50%;
+}
+
+.right {
+  background: lightskyblue;
+}
+
+.left {
+  background: sandybrown;
+}
