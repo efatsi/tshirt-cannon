@@ -5,8 +5,16 @@ Bundler.require
 load 'models/left.rb'
 load 'models/right.rb'
 
-DataMapper.setup(:default, 'postgres://efatsi@localhost/tshirt_cannon')
+DataMapper.setup(:default, ENV["TSHIRT_POSTGRESQL_URL"])
 DataMapper.finalize
+
+begin
+  Left.count
+rescue
+  DataMapper.auto_migrate!
+  Left.create(:count => 1)
+  Right.create(:count => 1)
+end
 
 get '/' do
   erb :home

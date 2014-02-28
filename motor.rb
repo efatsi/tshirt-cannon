@@ -5,7 +5,7 @@ Bundler.require
 load 'models/left.rb'
 load 'models/right.rb'
 
-DataMapper.setup(:default, 'postgres://efatsi@localhost/tshirt_cannon')
+DataMapper.setup(:default, ENV["TSHIRT_POSTGRESQL_URL"])
 DataMapper.finalize
 
 @board = Dino::Board.new(Dino::TxRx::Serial.new)
